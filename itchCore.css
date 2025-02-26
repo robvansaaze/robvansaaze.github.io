@@ -1,0 +1,218 @@
+/*Custom CSS 02/25*/
+:root{
+    --primaryHeaderColor:#181425;
+    --byColor:#3a4466;
+    --headerColor:#ffffff;
+    --headerFontColor:#5a6988;
+    --footerColor:#ffffff;
+    --shadowStrength:.25;
+    --headerPadding: 7%;
+}
+
+/*Drop shadows for page*/
+.header img,.header::after, .footer>*{
+    filter:drop-shadow(1px 1px 2px rgba(24,20,37,var(--shadowStrength)))!important
+}
+.columns{
+    font-size:Min(3.5vw,16px)!important;
+    text-align:justify;
+    filter:drop-shadow(1px 1px 1.5px rgba(24,20,37,var(--shadowStrength)))!important;
+    margin-top:0
+}
+
+/*Transitions for buttons, headers, media*/
+.button,.header,.screenshot,.video_embed_widget{
+    transition:50ms
+}
+.button:hover{
+    transform:scale(1.125)
+}
+
+/*Override footer & Header color*/
+.footer{
+    background-color:var(--footercolor)!important
+}
+.primary_header{
+    background:var(--primaryHeaderColor)!important
+}
+
+*/Wrapper padding fix for responsive view*/
+.responsive .wrapper{
+    padding:0!important
+}
+
+/*Hover effect for header, by text*/
+.header:has(img:hover){
+    transform:scale(1.075)
+}
+.header::after{
+    content:"By Rob van Saaze";
+    display:block;
+    font-weight:700;
+    padding:min(3vw,16px);
+    padding-bottom:0;
+    font-size:min(4.55vw,24px);
+    color:var(--byColor)
+}
+
+/*Custom headers*/
+.custom-line,#buy,#download,.game_community_preview_widget h2,.right_col.column .video_embed::before,.more_information_toggle::before{
+    background-color:var(--headerColor);
+    color:var(--headerFontColor);
+    font-size:1.3em;
+    padding:.1em .1em .1em .2em;
+    margin-bottom:-.5em;
+    font-weight:700;
+    margin-top:1.5em!important
+}
+.custom-line:first-of-type,.uploads>*{
+    margin-top:0!important
+}
+#buy,#download,.game_community_preview_widget h2{
+    margin-bottom:.5em
+}
+.right_col.column .video_embed::before{
+    content:"Media";
+    display:block;
+    margin-top:0!important;
+    text-align:left;
+    margin-bottom:.5em;
+}
+.more_information_toggle::before{
+    content:"More Information";
+    display:block;
+    margin-bottom:.5em;
+}
+
+
+/*Make buttons more readable*/
+.button,.buy_row{
+    font-size:1em!important
+}
+.button{
+    white-space:nowrap!important;
+    border:0!important;
+    border-radius:0!important;
+    text-shadow:none;
+    max-width:256px
+}
+
+/*Zero margin on several elements*/
+.buy_row,.community_topics,.formatted_description,.more_information_toggle,.post_links,.screenshot_list,.uploads>*,.video_embed,h2{
+    margin:0!important
+}
+.buy_row,.game_info_panel_widget {
+padding:0!important;
+background: rgba(0,0,0,0) !important;
+}
+
+/*Prettify more information row*/
+td:first-of-type::after{
+    content:":";
+}
+.game_info_panel_widget td:first-child{
+min-width: 0px!important;
+color: #262b44;
+opacity: 1;
+font-size: 100%;
+font-weight: normal;
+}
+
+/*Community Tweaks*/
+.post_avatar{
+    border-radius:0!important
+}
+
+/*Hide unsightly elements*/
+.header_buy_row{
+    display:none!important
+}
+
+/*Turn the download overview into a list view*/
+.name::before{
+    content:"►";
+    display:inline-block;
+    width:auto
+}
+
+/*Add margins back in for elements*/
+.buy_row,.community_topics{
+    margin-top:1em!important;
+    margin-bottom:1em!important
+}
+.left_col.column,.right_col.column{
+    margin:min(6vw,48px)!important;
+    margin-top:0!important
+}
+#header{
+padding:min(4vw,48px)!important;
+/*
+padding-top: calc(min(4vw,48px) + var(--headerPadding)) !important;
+padding-bottom: calc(min(4vw,48px) + var(--headerPadding)) !important;
+*/
+padding-top: var(--headerPadding) !important;
+padding-bottom: var(--headerPadding) !important;
+
+}
+.screenshot{
+    max-width:90%!important;
+    height:auto!important
+}
+
+/*Tweaks for responsive view*/
+@media (max-width:1000px){
+    .right_col.column::after{
+        content:"••••";
+        text-align:center;
+        width:100%;
+        display:inline-block;
+        font-size:2em
+    }
+    .right_col.column .video_embed::before{
+        margin-top:0!important
+    }
+    .screenshot_list{
+        margin-top:1.2vw!important
+    }
+    .screenshot_list a:not(:first-child){
+        margin-left:1.2vw!important
+    }
+    .right_col.column{
+        margin-bottom:0!important;
+        padding-bottom:0!important
+        margin-bottom: 1.5em!important;
+    }
+}
+@media (min-width:1001px){
+    .screenshot:hover,.video_embed_widget:hover{
+        transform:scale(1.075)
+    }
+    .screenshot{
+        width:100%;
+        max-width:100%!important
+    }
+    .video_embed{
+        margin-bottom:10px!important
+    }
+    .right_col.column{
+        margin-left:0!important
+    }
+}
+
+.info_panel_wrapper{
+display: block !important;
+}
+
+.toggle_info_btn{
+display:none;
+}
+
+td{
+padding: .1em !important;
+color: var(--itchio_text_color)!important;
+}
+
+.topic_tag{
+background-color: var(--headerColor) !important;
+color: var(--headerFontColor) !important;
+}
