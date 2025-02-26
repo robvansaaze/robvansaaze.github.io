@@ -1,0 +1,59 @@
+/*Itch.io Scrolling Background*/
+:root{
+--bgFadeColor: #262b44;
+--bgWidth: 490px;
+--bgHeight: 331px;
+--bgScrollSpeed: 18s;
+--bgUrl: url(https://img.itch.zone/aW1nLzIwMDQ2NDYxLnBuZw==/original/4TI99c.png);
+}
+
+#wrapper{
+background: none;
+overflow: hidden !important;
+position: relative;
+background:linear-gradient(90deg, var(--bgFadeColor) 10%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, var(--bgFadeColor) 90%);
+background-attachment: fixed;
+}
+
+#wrapper::before{
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 400%;
+  height: 400%;
+  content: "";
+  background: var(--bgUrl);
+  background-size: var(--bgWidth) auto;
+  background-repeat: repeat;
+  animation-name: sideupscroll;
+  animation-duration: var(--bgScrollSpeed);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+@media (max-width:1000px){
+#wrapper::before{
+animation-name: sideupscrollsmall;
+background-size: calc(var(--bgWidth)*.5) auto;
+}
+}
+
+@keyframes sideupscroll {
+  0% {
+    transform: translateX(0%) translateY(0%);
+  }
+  100% {
+    transform: translateX(calc(var(--bgWidth)*-1)) translateY(calc(var(--bgHeight)*-1));
+  }
+}
+
+@keyframes sideupscrollsmall {
+  0% {
+    transform: translateX(0%) translateY(0%);
+  }
+  100% {
+    transform: translateX(calc(var(--bgWidth)*-.5)) translateY(calc(var(--bgHeight)*-.5));
+  }
+}
