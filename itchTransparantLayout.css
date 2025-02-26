@@ -1,0 +1,44 @@
+/*BG Wipe*/
+:root{
+--bgColor: #5a6988;
+--additionalHeaderPadding: min(48px,8vw);
+}
+
+#inner_column{
+background: linear-gradient(180deg, rgba(0,0,0,0) 50%, var(--bgColor) 50%);
+}
+
+.columns, .footer{
+background: var(--bgColor) !important;
+}
+
+.footer{
+padding: 12px !important;
+}
+
+@media (max-width:1000px){
+.footer{
+margin-top: 0px !important;
+padding-top: 30px !important;
+}
+}
+.columns{
+    filter:none!important;
+}
+
+.left_col, .right_col,.inner_column{
+    filter:drop-shadow(1px 1px 2px rgba(24,20,37,var(--shadowStrength)))!important
+}
+
+.header{
+background: url(https://img.itch.zone/aW1nLzE5OTIwMTUzLnBuZw==/original/ars14X.png);
+background-position: center center;
+}
+
+.view_game_page::before, .inner_column::before {
+  display: block;
+  content: "*";
+  color: rgba(0,0,0,0);
+  background: var(--bgColor);
+  height: var(--additionalHeaderPadding);
+}
